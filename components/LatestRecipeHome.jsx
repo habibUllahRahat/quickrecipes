@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { getRecipes } from "../libs/data"
+import { getCategoryName, getRecipes } from "../libs/data"
 import LatestRecipeCard from "./LatestRecipeCard"
 
 const LatestRecipes = getRecipes()
@@ -28,7 +28,9 @@ export default function LatestRecipeHome({}) {
 			<div className='grid md:grid-cols-4 gap-8'>
 				{LatestRecipes.map((recipe) => (
 					<Link
-						href={`/recipes/${recipe.title}`}
+						href={`/${getCategoryName(
+							recipe.category_id
+						)}/${recipe.title}`}
 						key={recipe.title}
 					>
 						<LatestRecipeCard recipe={recipe} />

@@ -1,6 +1,9 @@
 import Link from "next/link"
-import CategorisedRecipeCard from "../../../components/CategorisedRecipeCard"
-import { getCategorisedRecipes } from "../../../libs/data"
+import CategorisedRecipeCard from "../../components/CategorisedRecipeCard"
+import {
+	getCategorisedRecipes,
+	getCategoryName,
+} from "../../libs/data"
 
 export default function page({ params: { category } }) {
 	const categorisedRecipes =
@@ -30,7 +33,9 @@ export default function page({ params: { category } }) {
 				{categorisedRecipes.map((r) => (
 					<Link
 						key={r.thumbnail}
-						href={`/recipes/${r.title}`}
+						href={`/${getCategoryName(
+							r.category_id
+						)}/${r.title}`}
 					>
 						<CategorisedRecipeCard recipe={r} />
 					</Link>

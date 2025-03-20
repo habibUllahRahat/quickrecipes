@@ -1,11 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
+import { getCategoryName } from "../libs/data"
 
 export default function RecipeSuggestedRecipeCard({
 	recipe,
 }) {
 	return (
-		<Link href={`/recipes/${recipe.title}`}>
+		<Link
+			href={`/${getCategoryName(
+				recipe.category_id
+			)}/${recipe.title}`}
+		>
 			<Image
 				src={`/thumbs/${recipe.thumbnail}`}
 				alt='Recipe 1'

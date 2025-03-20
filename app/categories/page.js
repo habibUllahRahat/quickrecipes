@@ -14,7 +14,7 @@ export default function Categories() {
 				{categories.map((c) => (
 					<Link
 						key={c.id}
-						href={`/categories/${c.name}`}
+						href={`/${c.name}`}
 					>
 						<CategoryCircle category={c} />
 					</Link>

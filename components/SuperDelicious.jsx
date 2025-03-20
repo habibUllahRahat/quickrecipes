@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { getRecipes } from "../libs/data"
+import { getCategoryName, getRecipes } from "../libs/data"
 import RecipeCardHome from "./RecipeCardHome"
 const recipes = getRecipes()
 const topThreeRecipes = recipes
@@ -19,7 +19,9 @@ export default function SuperDelicious() {
 			<div className='grid md:grid-cols-3 gap-8'>
 				{topThreeRecipes.map((recipe, index) => (
 					<Link
-						href={`/recipes/${recipe.title}`}
+						href={`/${getCategoryName(
+							recipe.category_id
+						)}/${recipe.title}`}
 						key={index}
 					>
 						<RecipeCardHome

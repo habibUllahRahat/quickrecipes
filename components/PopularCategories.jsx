@@ -20,10 +20,14 @@ export default function PopularCategories({}) {
 			</div>
 			<div className='grid grid-cols-3 md:grid-cols-6 gap-4'>
 				{categories.map((category) => (
-					<PopularCategoryCircle
+					<Link
+						href={`/${category.name}`}
 						key={category.id}
-						category={category}
-					/>
+					>
+						<PopularCategoryCircle
+							category={category}
+						/>
+					</Link>
 				))}
 			</div>
 		</section>

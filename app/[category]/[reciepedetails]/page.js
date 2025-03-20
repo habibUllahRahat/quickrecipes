@@ -13,12 +13,6 @@ export default function RecipeDeatils({
 			recipe.title ===
 			decodeURI(reciepedetails).replace("%3A", ":")
 		) {
-			console.log(
-				decodeURI(reciepedetails).replace(
-					"%3A",
-					":"
-				)
-			)
 			return recipe
 		}
 	})

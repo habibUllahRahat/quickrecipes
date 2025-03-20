@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { getCategoryName } from "../libs/data"
 
 export default function HeroSection({ recipe }) {
 	return (
@@ -22,7 +23,9 @@ export default function HeroSection({ recipe }) {
 						{recipe.description}
 					</p>
 					<Link
-						href={`/recipes/${recipe.title}`}
+						href={`/${getCategoryName(
+							recipe.category_id
+						)}/${recipe.title}`}
 						className='bg-orange-500 text-white px-6 py-2 rounded-full inline-block hover:bg-orange-600'
 					>
 						View Recipe
